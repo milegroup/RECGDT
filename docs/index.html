@@ -1,10 +1,230 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
 
-<h1>Title</h1>
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>ECGDT</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom fonts for this template -->
+	<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+	
+	<!-- Plugin CSS -->
+	<link rel="stylesheet" href="device-mockups/device-mockups.css">
+	
+	<!-- Custom styles for this template -->
+	<link href="css/new-age.css" rel="stylesheet">
+	<link rel="icon" href="./logoECGDT.png">
+	
+</head>
 
-<p>Hi, there!</p>
+<body id="page-top">
+	
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container">
+			<a href="#page-top" class="navbar-left"><img src="./logoECGDT.png" height="40"></a>
+			&nbsp; 
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">ECGDT</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				Menu
+				<i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#features">Features</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#download">Download</a>
+					</li>
 
-</body>
-</html>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="https://milegroup.github.io/ecgdt/" target="blank" style="color: red;font-weight: bold;">GitHub</a>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<header class="masthead">
+		<div class="container h-100"> 
+			<div class="row h-100">
+				<div class="col-lg-6 my-auto">
+					<div class="header-content mx-auto">
+						<h1 class="mb-5">ECGDT: ECG Diagnosis Tool.
+                        <p>System for aided-detection of cardiac conditions in ECG recordings</p></h1>
+						<div class="row">
+							<div class="col-lg-12 mb-3">
+								<center> <a href="#download" class="btn btn-warning btn-xl js-scroll-trigger">Download</a> </center>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 my-auto">
+					<div class="device-container">
+						<div class="device-mockup imac">
+							<div class="device">
+								<div class="screen">
+									<!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+									<img src="img/ecgdtExample.png" class="img-fluid" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+		
+	</header>
+	
+	
+	
+	<section class="features" id="features">
+		<div class="container">
+			<div class="section-heading text-center">
+				<h2>What is ECGDT?</h2>
+				<p>ECGDT is a web app which helps clinicians with the diagnosis of  six main conditions into ECG (Electrocardiogram) digitized records.</p>
+                <p>The system performs basic ECG detection, delineation and diagnosis tasks, using ECG records in ASCII or WFDB format.</p>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 my-auto">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="icon-present text-primary"></i>
+										<h3>Free to Use</h3>
+										<p>Free to download and use for any purpose</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="icon-lock-open text-primary"></i>
+										<h3>Open Source</h3>
+										<p>Modify and improve it as you wish</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="fa fa-heart-o text-primary"></i>
+										<h3>Single-channel detection</h3>
+										<p>Detection of heart beats in individual channels</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="fa fa-heartbeat text-primary"></i>
+										<h3>Global beats detection</h3>
+										<p>Detection of multi-channel heart beats combining information from all channels available</p>
+									</div>
+								</div>
+                            </div>
+
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="fa fa-hand-holding-heart text-primary"></i>
+										<h3>Beat wave delineation</h3>
+										<p>Identification of waves and segments present inside a given beat</p>
+									</div>
+								</div>
+								
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="fa fa-user-md text-primary"></i>
+										<h3>Computer-aided diagnosis</h3>
+										<p>Capable of assessing clinicians with the detection of bradycardia, ischemia, myocardial infarction, tachycardia, ventricular hypertrophy and Wolff-Parkinson-White syndrome</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="icon-organization text-primary"></i>
+										<h3>Extra features</h3>
+										<p>Graphic representation, record exportation, basal beat creation,...</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="feature-item">
+										<i class="icon-list text-primary"></i>
+										<h3>Easy to use</h3>
+										<p>Move over the menus in a very simple way</p>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="download bg-primary text-center" id="download">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 mx-auto">
+						<h2 class="section-heading">Download</h2>
+						<p>ECGDT is available for an R environment, through the RECGDT R package.</p>
+						<a class="btn btn-primary mb-3" href="https://milegroup.github.io/ecgdt/" role="button">ECGDT v1.1</a>
+                    <div class="row">
+					<div class="col-md-8 mx-auto">
+						<a class="btn btn-danger mb-3" href="https://milegroup.github.io/ecgdt/" role="button">User manual (.pdf) v1.0</a>
+
+					</div>
+				</div>
+                        
+					</div>
+				</div>
+
+
+			</div>
+		</section>
+		
+		
+		
+		<footer>
+			<div class="container">
+				<p>&copy; 2019 <a target="blank" href="http://lia.ei.uvigo.es/lia/view/">LIA2 (Laboratorio Informática Avanzada)</a></p>
+				<p><a target="blank" href="http://www.uvigo.es">Universidade de Vigo (SPAIN)</a></p>
+				<p>Bootstrap template designed by <a href="https://startbootstrap.com/" target="blank">Start Bootstrap</a></p>
+				
+			</div>
+		</footer>
+		
+		<!-- Bootstrap core JavaScript -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/popper/popper.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- Plugin JavaScript -->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		
+		<!-- Custom scripts for this template -->
+		<script src="js/new-age.min.js"></script>
+		
+	</body>
+	
+	</html>
+	
