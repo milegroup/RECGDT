@@ -1,0 +1,7 @@
+useDynLib(RECGDT)
+
+#exportPattern("^[[:alpha:]]+")
+
+export("CreateECGData","LoadECG","LoadECGAscii","ReadHeader","LoadECGWFDB","LoadECGWFDBHeader","LoadECGWFDBData","ConvertToPhysicalUnits","ExportECG","PlotECG","PlotECGSegment","BeatDetectionPreprocessor","PeakDetection","RootMeanSquared","TwoFirstPeaks","BeatDetectionPanTompkins","QRSDetection","QRSDetectionAllCh","ExportBeats","ExportBeatsAllCh","ExportGlobalBeats","PlotDetection","PlotDetectionSegment","PlotGlobalDetection","PlotGlobalDetectionSegment","PlotDetectionAvg","PlotDetectionAvg30","PlotBasalBeat","PlotBasalSignal","PlotMonoMultiDetectionSegment","GlobalBeats","SmoothBasalBeat","CreateBasalBeat","CreateGlobalBasalBeat","CreateBasalSignal","AdaptedBasalBeat","GetRRDistances","WaveletTransform","QRSDelineator","PWaveDelineator","TWaveDelineator","ECGDelineator","PlotDelineation","PlotDelineationPDF","PlotReferenceDelineation","PlotReferenceDelineationRealSignal","ExportDelineation","DiagnoseDiseases")
+
+#import("signal")
