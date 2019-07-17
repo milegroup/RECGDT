@@ -719,6 +719,12 @@ server <- function(input, output, session) {
     shinyjs::hide("plotBasal")
     shinyjs::reset("beatNum")
     shinyjs::hide("plotDelineation")
+    shinyjs::hide("predBradycardia")
+    shinyjs::hide("predIschemia")
+    shinyjs::hide("predMyocardialInfarction")
+    shinyjs::hide("predTachycardia")
+    shinyjs::hide("predVentricularHipertrophy")
+    shinyjs::hide("predWPWSyndrome")
   })
   
   observeEvent(input$butLoadECGWFDB, {
@@ -835,6 +841,12 @@ server <- function(input, output, session) {
     shinyjs::hide("plotBasal")
     shinyjs::reset("beatNum")
     shinyjs::hide("plotDelineation")
+    shinyjs::hide("predBradycardia")
+    shinyjs::hide("predIschemia")
+    shinyjs::hide("predMyocardialInfarction")
+    shinyjs::hide("predTachycardia")
+    shinyjs::hide("predVentricularHipertrophy")
+    shinyjs::hide("predWPWSyndrome")
   })
   
   observeEvent(input$butExportECG, {
@@ -1294,6 +1306,13 @@ server <- function(input, output, session) {
                  {  
                    rv$ECGData <- DiagnoseDiseases(rv$ECGData, modelBradycardia, modelIschemia, modelMyocardialInfarction, modelTachycardia, modelVentricularHypertrophy, modelWPWSyndrome)
                  })
+  
+  shinyjs::show("predBradycardia")
+  shinyjs::show("predIschemia")
+  shinyjs::show("predMyocardialInfarction")
+  shinyjs::show("predTachycardia")
+  shinyjs::show("predVentricularHipertrophy")
+  shinyjs::show("predWPWSyndrome")
   
   output$predBradycardia <- renderText({print(paste("Bradycardia:", format(round(rv$ECGData$diagnostics$bradycardia, digits = 2), nsmall = 2)))})
   output$predIschemia <- renderText({print(paste("Ischemia:", format(round(rv$ECGData$diagnostics$ischemia, digits = 2), nsmall = 2)))})
