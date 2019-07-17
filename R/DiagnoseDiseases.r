@@ -29,21 +29,14 @@ DiagnoseDiseases <- function(ECGData, modelBradycardia, modelIschemia, modelMyoc
   diagnosedBeats[3] <- ceiling(length(ECGData$beat)*0.5)
   diagnosedBeats[4] <- ceiling(length(ECGData$beat)*0.75)
   diagnosedBeats[5] <- length(ECGData$beat)-15
-  DiagnosticValuesRecord <- c()
-  DiagnosticValuesChannel <- c()
-  Distancia.RR <- c()
-  Duracion.PR <- c()
-  Duracion.QRS <- c()
-  Duracion.onda.Q <- c()
-  Altura.onda.Q <- c()
-  Altura.onda.R <- c()
-  Altura.onda.S <- c()
-  Duracion.Qtc <- c()
-  Depresion.ST <- c()
-  Elevacion.ST <- c()
-  ST <- c()
-  baseline <- 0
-  
+  diagnostics <- list()
+  diagnostics$bradycardia <- c()
+  diagnostics$ischemia <- c()
+  diagnostics$myocardialInfarction <- c()
+  diagnostics$tachycardia <- c()
+  diagnostics$ventricularHypertrophy <- c()
+  diagnostics$wpwSyndrome <- c()
+	
   #Before each diagnosis, probabilities are reset to 0
   ECGData$diagnostics$bradycardia <- 0
   ECGData$diagnostics$ischemia <- 0
@@ -54,8 +47,42 @@ DiagnoseDiseases <- function(ECGData, modelBradycardia, modelIschemia, modelMyoc
   
   for (i in 1:ECGData$nLeads)
   {
+    Distancia.RR <- c()
+    Duracion.PR <- c()
+    Duracion.QRS <- c()
+    Duracion.onda.Q <- c()
+    Altura.onda.Q <- c()
+    Altura.onda.R <- c()
+    Altura.onda.S <- c()
+    Duracion.Qtc <- c()
+    Depresion.ST <- c()
+    Elevacion.ST <- c()
+    ST <- c()
+
     for (j in 1:5)
     {
+      DiagnosticValuesRecord <- c()
+      DiagnosticValuesChannel <- c()
+      baseline <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]] <- list()
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$basalBeatSignal <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$basalBeatRPeakPos <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$avgBeat <- c()
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$QRS <- list()
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$QRS$peak <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$QRS$QRSOnset <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$QRS$QRSOffset <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$QRS$QPeak <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$QRS$SPeak <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$PWave <- list()
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$PWave$PPeak <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$PWave$POnset <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$PWave$POffset <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$TWave <- list()
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$TWave$TPeak <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$TWave$TOnset <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$basalBeat[[i]]$TWave$TOffset <- 0
+      ECGData$beat[[diagnosedBeats[j]]]$detrendPlot<- c()
       ECGData <- AdaptedBasalBeat(ECGData, i, diagnosedBeats[j], 5)
       ECGData <- ECGDelineator(ECGData, i, diagnosedBeats[j])
       
@@ -265,17 +292,25 @@ DiagnoseDiseases <- function(ECGData, modelBradycardia, modelIschemia, modelMyoc
       {
         ST <- c(ST, 0)
       }
-    }
-  }
 
-  newCase <- data.frame(DiagnosticValuesRecord, DiagnosticValuesChannel, Distancia.RR, Duracion.PR, Duracion.QRS, Duracion.onda.Q, Altura.onda.Q, Altura.onda.R, Altura.onda.S, Duracion.Qtc, Depresion.ST, Elevacion.ST, ST)
-  print(newCase)
-  ECGData$diagnostics$bradycardia <- mean(predict(modelBradycardia,type = "response",newdata=newCase))
-  ECGData$diagnostics$ischemia <- mean(predict(modelIschemia,type = "response",newdata=newCase))
-  ECGData$diagnostics$myocardialInfarction <- mean(predict(modelMyocardialInfarction,type = "response",newdata=newCase))
-  ECGData$diagnostics$tachycardia <- mean(predict(modelTachycardia,type = "response",newdata=newCase))
-  ECGData$diagnostics$ventricularHypertrophy <- mean(predict(modelVentricularHypertrophy,type = "response",newdata=newCase))
-  ECGData$diagnostics$wpwSyndrome <- mean(predict(modelWPWSyndrome,type = "response",newdata=newCase))
+    }
+    
+    newCase <- data.frame(DiagnosticValuesRecord, DiagnosticValuesChannel, Distancia.RR, Duracion.PR, Duracion.QRS, Duracion.onda.Q, Altura.onda.Q, Altura.onda.R, Altura.onda.S, Duracion.Qtc, Depresion.ST, Elevacion.ST, ST)
+    diagnostics$bradycardia[i] <- mean(predict(modelBradycardia,type = "response",newdata=newCase))
+    diagnostics$ischemia[i] <- mean(predict(modelIschemia,type = "response",newdata=newCase))
+    diagnostics$myocardialInfarction[i] <- mean(predict(modelMyocardialInfarction,type = "response",newdata=newCase))
+    diagnostics$tachycardia[i] <- mean(predict(modelTachycardia,type = "response",newdata=newCase))
+    diagnostics$ventricularHypertrophy[i] <- mean(predict(modelVentricularHypertrophy,type = "response",newdata=newCase))
+    diagnostics$wpwSyndrome[i] <- mean(predict(modelWPWSyndrome,type = "response",newdata=newCase))
+    
+  }
+ 		
+  ECGData$diagnostics$bradycardia <- mean(diagnostics$bradycardia)
+  ECGData$diagnostics$ischemia <- mean(diagnostics$ischemia)
+  ECGData$diagnostics$myocardialInfarction <- mean(diagnostics$myocardialInfarction)
+  ECGData$diagnostics$tachycardia <- mean(diagnostics$tachycardia)
+  ECGData$diagnostics$ventricularHypertrophy <- mean(diagnostics$ventricularHypertrophy)
+  ECGData$diagnostics$wpwSyndrome <- mean(diagnostics$wpwSyndrome)
   
   return(ECGData)
   
