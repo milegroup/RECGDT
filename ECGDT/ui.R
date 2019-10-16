@@ -20,6 +20,8 @@ modelWPWSyndrome <- readRDS(file = "modelWPWSyndrome.rds")
 #ECGData <- CreateECGData(Verbose = TRUE)
 ECGData <- baseECGData
 
+options(shiny.maxRequestSize=100*1024^2)
+
 ui <- fluidPage(
   #CSS rules to establish the height of the Shiny window, the font for the name of the app and the font for the new menus.
   tags$head(
