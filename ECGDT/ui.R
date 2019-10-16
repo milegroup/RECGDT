@@ -6,8 +6,8 @@ library(stringi)
 #The stringi package is used to indent specific menus related to a more generic one.
 library(shinyjs)
 #The shinyjs package is used to enable and disable buttons, depending on the context.
-library(recgTesis)
-#The recgTesis package contains all the core functionalities of the app.
+library(RECGDT)
+#The RECGDT package contains all the core functionalities of the app (if the package is generated; otherwise, compile functions and comment this package loading instruction).
 
 baseECGData <- readRDS(file = "baseECGData.rds")
 modelBradycardia <- readRDS(file = "modelBradycardia.rds")
