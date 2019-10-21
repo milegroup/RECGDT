@@ -19,18 +19,18 @@ R package for ECGDT (ECG Diagnosis Tool). A system that is capable of:
 If you want to run an ECGDT test as in the demo video, you can download a 12-lead ECG record from PhysioNet (https://physionet.org/content/incartdb/1.0.0/). For example, if you use record I17:
 
 - First, download I17.atr, I17.dat and I17.hea files.
-- Then, you can obtain an ASCII file using the WFDB applications, running the command: rdsamp -r I17 > I17.
+- Then, you can obtain an ASCII file using the WFDB applications, running the command: `rdsamp -r I17 > I17`.
 - After that, you can add to the resultant ASCII file the header in ECGDT format, by pasting at the beginning of the file:
 
-    <Header>
-      id=I17
-      sFreq=257
-      nLeads=12
-      nSamples=462600
-      channels=I,II,III,AVR,AVL,AVF,V1,V2,V3,V4,V5,V6
-      gender=M
-      conditions=bradycardia,bundleBranchBlock,ischemia,PVCs
-    </Header>
+    `<Header>
+      `id=I17
+      `sFreq=257
+      `nLeads=12
+      `nSamples=462600
+      `channels=I,II,III,AVR,AVL,AVF,V1,V2,V3,V4,V5,V6
+      `gender=M
+      `conditions=bradycardia,bundleBranchBlock,ischemia,PVCs
+    `</Header>
     
 - With your record file ready, you can select it from the Load ECG menu.
 
