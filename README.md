@@ -16,7 +16,7 @@ R package for ECGDT (ECG Diagnosis Tool). A system that is capable of:
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-If you want to run an ECGDT test as in the demo video, you can download a 12-lead ECG record from PhysioNet (https://physionet.org/content/incartdb/1.0.0/). For example, if you use record I17:
+If you want to run an ECGDT test as in the demo video (https://youtu.be/wh4JW_BOmJk), you can download a 12-lead ECG record from PhysioNet (https://physionet.org/content/incartdb/1.0.0/). For example, if you use record I17:
 
 - First, download I17.atr, I17.dat and I17.hea files.
 - Then, you can obtain an ASCII file using the WFDB applications, running the command: `rdsamp -r I17 > I17`.
