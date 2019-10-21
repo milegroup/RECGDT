@@ -23,13 +23,13 @@ If you want to run an ECGDT test as in the demo video, you can download a 12-lea
 - After that, you can add to the resultant ASCII file the header in ECGDT format, by pasting at the beginning of the file:
 
     `<Header>`</br>
-      `id=I17`</br>
-      `sFreq=257`</br>
-      `nLeads=12`</br>
-      `nSamples=462600`</br>
-      `channels=I,II,III,AVR,AVL,AVF,V1,V2,V3,V4,V5,V6`</br>
-      `gender=M`</br>
-      `conditions=bradycardia,bundleBranchBlock,ischemia,PVCs`</br>
+      ` id=I17`</br>
+      ` sFreq=257`</br>
+      ` nLeads=12`</br>
+      ` nSamples=462600`</br>
+      ` channels=I,II,III,AVR,AVL,AVF,V1,V2,V3,V4,V5,V6`</br>
+      ` gender=M`</br>
+      ` conditions=bradycardia,bundleBranchBlock,ischemia,PVCs`</br>
     `</Header>`</br>
     
 - With your record file ready, you can select it from the Load ECG menu.
