@@ -7,7 +7,7 @@ library(stringi)
 library(shinyjs)
 #The shinyjs package is used to enable and disable buttons, depending on the context.
 library(RECGDT)
-#The RECGDT package contains all the core functionalities of the app (if the package is generated; otherwise, compile functions and comment this package loading instruction).
+#The RECGDT package contains all the core functionalities of the app (if the package is generated; otherwise, comment this package loading instruction, and manually compile the functions needed in the project).
 
 baseECGData <- readRDS(file = "baseECGData.rds")
 modelBradycardia <- readRDS(file = "modelBradycardia.rds")
