@@ -33,4 +33,5 @@ If you want to run an ECGDT test as in the demo video (https://youtu.be/wh4JW_BO
     `</Header>`</br>
     
 - With your record file ready, you can select it from the Load ECG menu.
+- After that, follow the steps to analyze the ECG record.
 
